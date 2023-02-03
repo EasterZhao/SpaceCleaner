@@ -15,11 +15,8 @@ public class GameInput : MonoBehaviour
     // if Player pressed E
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        //OnInteractAction?.Invoke(this,EventArgs.Empty);
-        if(OnInteractAction != null)
-        {
-        OnInteractAction(this,EventArgs.Empty);
-        }
+        OnInteractAction?.Invoke(this,EventArgs.Empty);
+
     }
     
     
