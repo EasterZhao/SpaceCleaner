@@ -5,13 +5,23 @@ using UnityEngine;
 public class ClearCounter : MonoBehaviour
 {
    
-    [SerializeField] private Transform cubePrefab;
+    [SerializeField] private CubeObjectSO cubeObjectSO;
     
     [SerializeField] private Transform counterTopPoint;
+
+    private CubeObject cubeObject;
+
+   // private Cube cubeObject;
    public void Interact()
    {
         Debug.Log("interact");
-        Transform cubeTransform = Instantiate(cubePrefab, counterTopPoint);
-        cubeTransform.localPosition = Vector3.zero;
+       // only one object would appear on desktop
+       if(cubeObject == null)
+        {
+        Transform cubeObjectTransform = Instantiate(cubeObjectSO.prefab, counterTopPoint);
+        cubeObjectTransform.localPosition = Vector3.zero;
+
+        cubeObject = cubeObjectTransform.GetComponent<CubeObject>();
+        }
    }
 }
