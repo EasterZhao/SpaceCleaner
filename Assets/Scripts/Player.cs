@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour ,ICubeObjectParent
 {
     
     public static Player Instance{ get; private set;}
@@ -24,9 +24,10 @@ public class Player : MonoBehaviour
 
 
     private bool isWalking;
-
     private Vector3 lastInteractDir;
     private ClearCounter selectedCounter;
+    private CubeObject cubeObject;
+    [SerializeField] private Transform cubeObjectHoldPoint;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
     {
         if (selectedCounter != null)
         {
-            selectedCounter.Interact();
+            selectedCounter.Interact(this);
         }
     }
 
@@ -152,4 +153,32 @@ public class Player : MonoBehaviour
             selectedCounter = selectedCounter
         });
     }
+
+   
+    public Transform GetCubeObjectFollowTransform()
+    {
+        return cubeObjectHoldPoint;
+    }
+
+    public void SetCubeObject(CubeObject cubeObject)
+    {
+        this.cubeObject = cubeObject;
+    }
+
+    public CubeObject GetCubeObject()
+    {
+        return cubeObject;
+    }
+
+    public void ClearCubeObject()
+    {
+          cubeObject = null;
+    }
+
+    public bool HasCubeObject()
+    {
+     return cubeObject != null;
+    }
+    
+  
 }

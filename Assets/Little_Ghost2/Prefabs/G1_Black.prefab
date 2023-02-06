@@ -62,7 +62,7 @@ Transform:
   m_Children:
   - {fileID: 7336544799522259451}
   m_Father: {fileID: 4044005638079908655}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &981163442623043622
 GameObject:
@@ -94,7 +94,7 @@ Transform:
   m_Children:
   - {fileID: 1667315405387541680}
   m_Father: {fileID: 4044005638079908655}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748010989584258028
 GameObject:
@@ -275,6 +275,37 @@ Transform:
   m_Father: {fileID: 3994424833647731647}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2388708997353845376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6991107962238924466}
+  m_Layer: 0
+  m_Name: CubeObjectHoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6991107962238924466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388708997353845376}
+  m_LocalRotation: {x: -0.000067201334, y: 0.10830819, z: -0.00028373662, w: 0.9941173}
+  m_LocalPosition: {x: 3.7465246, y: 6.253896, z: 1.6941693}
+  m_LocalScale: {x: 9.8214245, y: 9.82044, z: 9.821423}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4044005638079908655}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3255018329044829888
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +368,7 @@ Transform:
   m_LocalScale: {x: 0.10181822, y: 0.10182842, z: 0.10181824}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6991107962238924466}
   - {fileID: 3994424833647731647}
   - {fileID: 833537259883424784}
   m_Father: {fileID: 4581718618250850182}
@@ -472,6 +504,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  gameInput: {fileID: 0}
+  countersLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  cubeObjectHoldPoint: {fileID: 0}
 --- !u!1 &5954301793336381631
 GameObject:
   m_ObjectHideFlags: 0
