@@ -2,69 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearCounter : MonoBehaviour, ICubeObjectParent 
+public class ClearCounter : BaseCounter
 {
 
     [SerializeField] private CubeObjectSO cubeObjectSO;
 
-    [SerializeField] private Transform counterTopPoint;
-    [SerializeField] private ClearCounter secondClearCounter;
-    [SerializeField] private bool testing;
-
-    private CubeObject cubeObject;
-
     // private Cube cubeObject;
-    private void Update()
+
+    public override void Interact(Player player)
     {
-        if (testing && Input.GetKeyDown(KeyCode.T))
+        if(!HasCubeObject())
         {
-            if (cubeObject != null)
+            // There is no CubeObject here
+            if(player.HasCubeObject())
             {
-                cubeObject.SetICubeObjectParent(secondClearCounter);
+                // Player is carrying sth
+                player.GetCubeObject().SetICubeObjectParent(this);
             }
-        }
-    }
-
-    public void Interact(Player player)
-    {
-        // only one object would appear on desktop
-        if (cubeObject == null)
-        {
-            Transform cubeObjectTransform = Instantiate(cubeObjectSO.prefab, counterTopPoint);
-            cubeObjectTransform.GetComponent<CubeObject>().SetICubeObjectParent(this);
-
         }
         else
         {
-          // give the object to the player
-            Debug.Log(cubeObject.GetCubeObjectParent());
-           cubeObject.SetICubeObjectParent(player);
+            // There is a cubeObject here
         }
 
-    }
-    public Transform GetCubeObjectFollowTransform()
-    {
-        return counterTopPoint;
-    }
-
-    public void SetCubeObject(CubeObject cubeObject)
-    {
-        this.cubeObject = cubeObject;
-    }
-
-    public CubeObject GetCubeObject()
-    {
-        return cubeObject;
-    }
-
-    public void ClearCubeObject()
-    {
-          cubeObject = null;
-    }
-
-    public bool HasCubeObject()
-    {
-     return cubeObject != null;
     }
 
 }

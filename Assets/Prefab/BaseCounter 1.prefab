@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331f4f161d1e4204989170836171784a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearCounter: {fileID: 3727154357945861948}
+  clearCounter: {fileID: 0}
   visualGameObject: {fileID: 2311804875780212703}
 --- !u!1 &3138414269815465588
 GameObject:
@@ -223,7 +223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c8df0ef6b5b6e0c40bfd1aa439521103, type: 2}
+  - {fileID: 2100000, guid: b5056a3a260a37342aec4e56a457d621, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -255,9 +255,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6880247857556307229}
   - component: {fileID: 720592896746314951}
-  - component: {fileID: 3727154357945861948}
   m_Layer: 3
-  m_Name: ClearCounter
+  m_Name: BaseCounter 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,20 +293,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3727154357945861948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6880247857556307228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c14120e325ea649b99a2be1d032265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubeObjectSO: {fileID: 11400000, guid: 1911138e336c81046b8dcbbffb43aafc, type: 2}
-  counterTopPoint: {fileID: 7478711836064865919}
 --- !u!1 &7032086377591372629
 GameObject:
   m_ObjectHideFlags: 0

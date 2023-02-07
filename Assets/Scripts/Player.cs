@@ -11,7 +11,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     }
 
 
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
 
     private bool isWalking;
     private Vector3 lastInteractDir;
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private CubeObject cubeObject;
     [SerializeField] private Transform cubeObjectHoldPoint;
 
@@ -72,11 +72,11 @@ public class Player : MonoBehaviour ,ICubeObjectParent
         float interactDistance = 2f;
         if (Physics.Raycast(transform.position + transform.up * 0.75f, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
-            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
-                if (clearCounter != selectedCounter)
+                if (baseCounter != selectedCounter)
                 {
-                    SetSelectedCounter(clearCounter);
+                    SetSelectedCounter(baseCounter);
                 }
             }
             else
@@ -144,7 +144,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
         }
     }
 
-    private void SetSelectedCounter(ClearCounter selectedCounter)
+    private void SetSelectedCounter(BaseCounter selectedCounter)
     {
         this.selectedCounter = selectedCounter;
 
