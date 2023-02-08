@@ -19,10 +19,23 @@ public class ClearCounter : BaseCounter
                 // Player is carrying sth
                 player.GetCubeObject().SetICubeObjectParent(this);
             }
+            else
+            {
+                // Player has nothing
+            }
         }
         else
         {
             // There is a cubeObject here
+            if(player.HasCubeObject())
+            {
+                // Player is carrying sth
+            }
+            else
+            {
+                // Player is not carrying anything
+                GetCubeObject().SetICubeObjectParent(player);
+            }
         }
 
     }

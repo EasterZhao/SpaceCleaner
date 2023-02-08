@@ -133,7 +133,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
             transform.position += moveDir * moveDistance;
         }
 
-        // Adding character animation
+        //  Player animation
         if (moveDir != Vector3.zero)
         {
             animator.SetBool("IsWalking", true);
