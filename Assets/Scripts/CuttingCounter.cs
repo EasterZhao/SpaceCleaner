@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearCounter : BaseCounter
-{
-
-    [SerializeField] private CubeObjectSO cubeObjectSO;
-
-    // private Cube cubeObject;
-
+public class CuttingCounter : BaseCounter
+{   
+    [SerializeField] private CubeObjectSO cutCubeObjectSO;
     public override void Interact(Player player)
     {
+
         if(!HasCubeObject())
         {
             // There is no CubeObject here
@@ -37,9 +34,16 @@ public class ClearCounter : BaseCounter
                 GetCubeObject().SetICubeObjectParent(player);
             }
         }
-
     }
 
-
-
+        public override void InteractAlternate(Player player)
+    {
+       if(HasCubeObject())
+       {
+        // cut it
+        GetCubeObject().DestroySelf();
+        Transform cubeObjectTransform = Instantiate(cutCubeObjectSO.prefab);
+        cubeObjectTransform.GetComponent<CubeObject>().SetICubeObjectParent(this);
+       }
+    }
 }

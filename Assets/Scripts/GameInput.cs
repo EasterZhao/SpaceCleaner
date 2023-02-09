@@ -6,12 +6,23 @@ using System;
 public class GameInput : MonoBehaviour
 {
     public event EventHandler OnInteractAction;
+    public event EventHandler OnInteractAlternateAction;
     private PlayerInputActons playerInputActons;
     private void Awake() {
         playerInputActons = new PlayerInputActons();
         playerInputActons.Player.Enable();
         playerInputActons.Player.Interact.performed += Interact_performed;
+        playerInputActons.Player.InteractAlternate.performed += InteractAlternate_performed;
+
     }
+
+    // if Player pressed F
+    private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnInteractAlternateAction?.Invoke(this,EventArgs.Empty);
+
+    }
+    
     // if Player pressed E
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

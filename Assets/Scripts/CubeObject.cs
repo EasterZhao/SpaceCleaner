@@ -30,4 +30,10 @@ public class CubeObject : MonoBehaviour
     {
         return cubeObjectParent;
     }
+
+    public void DestroySelf()
+    {
+        cubeObjectParent.ClearCubeObject();
+        Destroy(gameObject);
+    }
 }

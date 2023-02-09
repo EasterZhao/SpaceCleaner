@@ -11,6 +11,11 @@ public class BaseCounter : MonoBehaviour , ICubeObjectParent
 
     }
 
+        public virtual void InteractAlternate(Player player)
+    {
+
+    }
+
     public Transform GetCubeObjectFollowTransform()
     {
         return counterTopPoint;
