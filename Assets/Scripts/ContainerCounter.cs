@@ -16,12 +16,12 @@ public class ContainerCounter : BaseCounter
 
     public override void Interact(Player player)
     {
-        // only one object would appear on desktop
-            Transform cubeObjectTransform = Instantiate(cubeObjectSO.prefab);
-            cubeObjectTransform.GetComponent<CubeObject>().SetICubeObjectParent(player);
-
+        if(!player.HasCubeObject())
+            {
+              // only one object would appear on desktop
+             CubeObject.SpawnCubeObject(cubeObjectSO, player);    
             animator.SetBool("OpenClose", true);
-
+            }
 
     }
 

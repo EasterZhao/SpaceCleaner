@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CuttingCounter : BaseCounter
 {   
-    [SerializeField] private CubeObjectSO cutCubeObjectSO;
+    [SerializeField] private CuttingObjectSO[] cuttingObjectSOArray;
     public override void Interact(Player player)
     {
 
@@ -40,10 +40,22 @@ public class CuttingCounter : BaseCounter
     {
        if(HasCubeObject())
        {
-        // cut it
+        CubeObjectSO outputCubeObjectSO = GetOutputForInput(GetCubeObject().GetCubeObjectSO());
+        // cut it and delete the original object
         GetCubeObject().DestroySelf();
-        Transform cubeObjectTransform = Instantiate(cutCubeObjectSO.prefab);
-        cubeObjectTransform.GetComponent<CubeObject>().SetICubeObjectParent(this);
+        CubeObject.SpawnCubeObject(outputCubeObjectSO, this);
        }
+    }
+
+    private CubeObjectSO GetOutputForInput(CubeObjectSO inputCubeObjectSO)
+    {
+        foreach(CuttingObjectSO cuttingObjectSO in cuttingObjectSOArray)
+        {
+            if(cuttingObjectSO.input == inputCubeObjectSO)
+            {
+                return cuttingObjectSO.output;
+            }
+        }
+        return null;
     }
 }

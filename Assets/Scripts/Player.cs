@@ -55,6 +55,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
     }
     private void GameInput_OnInteractAlternateAction (object sender, System.EventArgs e)
     {
+        // check is there any items on counter
         if (selectedCounter != null)
         {
             selectedCounter.InteractAlternate(this);
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
     }
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
+        // check is there any items on counter
         if (selectedCounter != null)
         {
             selectedCounter.Interact(this);

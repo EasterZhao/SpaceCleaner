@@ -8,7 +8,7 @@ public class CubeObject : MonoBehaviour
 
     private ICubeObjectParent  cubeObjectParent;
 
-    public CubeObjectSO GetcubeObjectSO()
+    public CubeObjectSO GetCubeObjectSO()
     {
         return cubeObjectSO;
     }
@@ -35,5 +35,13 @@ public class CubeObject : MonoBehaviour
     {
         cubeObjectParent.ClearCubeObject();
         Destroy(gameObject);
+    }
+
+    public static CubeObject SpawnCubeObject(CubeObjectSO cubeObjectSO, ICubeObjectParent cubeObjectParent)
+    {
+        Transform cubeObjectTransform = Instantiate(cubeObjectSO.prefab);
+        CubeObject cubeObject = cubeObjectTransform.GetComponent<CubeObject>();
+        cubeObject.SetICubeObjectParent(cubeObjectParent);
+        return cubeObject;
     }
 }
