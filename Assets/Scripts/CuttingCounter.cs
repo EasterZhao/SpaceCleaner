@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CuttingCounter : BaseCounter
-{   
+{
     [SerializeField] private CuttingObjectSO[] cuttingObjectSOArray;
+
+    private int cuttingProgress;
     public override void Interact(Player player)
     {
 
-        if(!HasCubeObject())
+        if (!HasCubeObject())
         {
             // There is no CubeObject here
-            if(player.HasCubeObject())
+            if (player.HasCubeObject())
             {
                 // Player is carrying sth
-                player.GetCubeObject().SetICubeObjectParent(this);
+                if (HasCubeObjectWithInput(player.GetCubeObject().GetCubeObjectSO()))
+                {
+                    
+                    player.GetCubeObject().SetICubeObjectParent(this);
+                    
+                }
+
             }
             else
             {
@@ -24,7 +32,7 @@ public class CuttingCounter : BaseCounter
         else
         {
             // There is a cubeObject here
-            if(player.HasCubeObject())
+            if (player.HasCubeObject())
             {
                 // Player is carrying sth
             }
@@ -36,22 +44,34 @@ public class CuttingCounter : BaseCounter
         }
     }
 
-        public override void InteractAlternate(Player player)
+    public override void InteractAlternate(Player player)
     {
-       if(HasCubeObject())
-       {
-        CubeObjectSO outputCubeObjectSO = GetOutputForInput(GetCubeObject().GetCubeObjectSO());
-        // cut it and delete the original object
-        GetCubeObject().DestroySelf();
-        CubeObject.SpawnCubeObject(outputCubeObjectSO, this);
-       }
+        if (HasCubeObject() && HasCubeObjectWithInput(GetCubeObject().GetCubeObjectSO()))
+        {
+            CubeObjectSO outputCubeObjectSO = GetOutputForInput(GetCubeObject().GetCubeObjectSO());
+            // cut it and delete the original object
+            GetCubeObject().DestroySelf();
+            CubeObject.SpawnCubeObject(outputCubeObjectSO, this);
+        }
+    }
+
+    private bool HasCubeObjectWithInput(CubeObjectSO inputCubeObjectSO)
+    {
+        foreach (CuttingObjectSO cuttingObjectSO in cuttingObjectSOArray)
+        {
+            if (cuttingObjectSO.input == inputCubeObjectSO)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private CubeObjectSO GetOutputForInput(CubeObjectSO inputCubeObjectSO)
     {
-        foreach(CuttingObjectSO cuttingObjectSO in cuttingObjectSOArray)
+        foreach (CuttingObjectSO cuttingObjectSO in cuttingObjectSOArray)
         {
-            if(cuttingObjectSO.input == inputCubeObjectSO)
+            if (cuttingObjectSO.input == inputCubeObjectSO)
             {
                 return cuttingObjectSO.output;
             }
