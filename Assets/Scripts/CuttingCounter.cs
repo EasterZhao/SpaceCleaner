@@ -48,32 +48,45 @@ public class CuttingCounter : BaseCounter
     {
         if (HasCubeObject() && HasCubeObjectWithInput(GetCubeObject().GetCubeObjectSO()))
         {
-            CubeObjectSO outputCubeObjectSO = GetOutputForInput(GetCubeObject().GetCubeObjectSO());
+                  
+            cuttingProgress++;
+            CuttingObjectSO cuttingObjectSO = GetCuttingObjectSOWithInput(GetCubeObject().GetCubeObjectSO());      
             // cut it and delete the original object
+            if(cuttingProgress >= cuttingObjectSO.cuttingProgressMax)
+            {
+            CubeObjectSO outputCubeObjectSO = GetOutputForInput(GetCubeObject().GetCubeObjectSO());  
             GetCubeObject().DestroySelf();
             CubeObject.SpawnCubeObject(outputCubeObjectSO, this);
+            }
         }
     }
 
     private bool HasCubeObjectWithInput(CubeObjectSO inputCubeObjectSO)
     {
-        foreach (CuttingObjectSO cuttingObjectSO in cuttingObjectSOArray)
-        {
-            if (cuttingObjectSO.input == inputCubeObjectSO)
-            {
-                return true;
-            }
-        }
-        return false;
+        CuttingObjectSO cuttingObjectSO = GetCuttingObjectSOWithInput( inputCubeObjectSO);
+        return cuttingObjectSO != null;
     }
 
     private CubeObjectSO GetOutputForInput(CubeObjectSO inputCubeObjectSO)
+    {
+        CuttingObjectSO cuttingObjectSO = GetCuttingObjectSOWithInput( inputCubeObjectSO);
+        if(cuttingObjectSO != null)
+        {
+             return cuttingObjectSO.output;
+        }
+        else
+        {
+                return null;
+        }
+    }
+
+    private CuttingObjectSO GetCuttingObjectSOWithInput(CubeObjectSO inputCubeObjectSO)
     {
         foreach (CuttingObjectSO cuttingObjectSO in cuttingObjectSOArray)
         {
             if (cuttingObjectSO.input == inputCubeObjectSO)
             {
-                return cuttingObjectSO.output;
+                return cuttingObjectSO;
             }
         }
         return null;

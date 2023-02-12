@@ -6,4 +6,6 @@ public class CuttingObjectSO : ScriptableObject
 {
     public CubeObjectSO input;
     public CubeObjectSO output;
+
+    public int cuttingProgressMax;
 }
