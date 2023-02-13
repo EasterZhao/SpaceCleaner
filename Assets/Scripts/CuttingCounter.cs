@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public class CuttingCounter : BaseCounter
     [SerializeField] private CuttingObjectSO[] cuttingObjectSOArray;
 
     private int cuttingProgress;
+    public class OnProgressChangedEventArgs : EventArgs
+    {
+        
+    }
+
+    public event EventHandler OnProgressChanged;
     public override void Interact(Player player)
     {
 
