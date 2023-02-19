@@ -4,8 +4,55 @@ using UnityEngine;
 using System;
 
 public class MachineCounter : BaseCounter
-{
+{   
+    private enum State
+    {
+        Idle,
+        Processing,
+        Processed,
+       // Broken,
+        
+    }
    [SerializeField] private UnprocessedRecipeSO[] unprocessedRecipeSOArray;
+
+    private float processTimer;
+    private UnprocessedRecipeSO unprocessedRecipeSO;
+    private State state;
+
+    private void Start() 
+    {
+        state = State.Idle;
+    }
+    private void Update()
+    {        
+        if(HasCubeObject())
+        {
+        switch (state)
+        {
+            case State.Idle:
+                break;
+            case State.Processing:            
+            processTimer += Time.deltaTime;
+           
+            if(processTimer  > unprocessedRecipeSO.fryingTimeMax )
+            {
+                processTimer = 0f;
+                GetCubeObject().DestroySelf();
+                CubeObject.SpawnCubeObject(unprocessedRecipeSO.output, this);
+                state = State.Processed;
+            }
+                break;
+            case State.Processed:
+                break;
+            //case State.Broken:
+                //break;
+
+        }
+
+           
+
+        }
+   }
     public override void Interact(Player player)
     {
 
@@ -16,8 +63,12 @@ public class MachineCounter : BaseCounter
             {
                 // Player is carrying sth
                 if (HasCubeObjectWithInput(player.GetCubeObject().GetCubeObjectSO()))
-                {player.GetCubeObject().SetICubeObjectParent(this);
-             
+                {
+                    player.GetCubeObject().SetICubeObjectParent(this);
+                    unprocessedRecipeSO = GetUnprocessedRecipeSOWithInput(GetCubeObject().GetCubeObjectSO());
+                    state = State.Processing;
+                    processTimer = 0f;
+ 
                 }
 
             }
