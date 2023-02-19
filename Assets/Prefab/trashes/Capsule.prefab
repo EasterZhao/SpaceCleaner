@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9427e8efdf405be4e840ec2f4f269535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeObjectSO: {fileID: 0}
+  cubeObjectSO: {fileID: 11400000, guid: 52874399320559043bc0de79ab62ff4c, type: 2}
