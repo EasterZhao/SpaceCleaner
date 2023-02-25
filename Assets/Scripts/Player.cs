@@ -28,6 +28,8 @@ public class Player : MonoBehaviour ,ICubeObjectParent
     private CubeObject cubeObject;
     [SerializeField] private Transform cubeObjectHoldPoint;
 
+    private Inventory inventory;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -37,6 +39,8 @@ public class Player : MonoBehaviour ,ICubeObjectParent
 
         }
         Instance = this;
+
+        inventory = new Inventory();
     }
 
     private void Update()
