@@ -114,13 +114,13 @@ public class Player : MonoBehaviour ,ICubeObjectParent
         float playerRadius = .5f;
         float playerHeight = 4f;
         float moveDistance = moveSpeed * Time.deltaTime;
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+        bool canMove;// = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
         // Sleek turnaround.Vector3 Slerp(Vector3 a, Vector3 b, float t);
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
         // Players can slide from the edge when pressing AW, WD, etc. at the same time
-        if (!canMove)
+        /*if (!canMove)
         {
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0);
             canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
@@ -140,8 +140,8 @@ public class Player : MonoBehaviour ,ICubeObjectParent
                 }
             }
         }
-
-        if (canMove)
+*/
+        //if (canMove)
         {
             transform.position += moveDir * moveDistance;
         }
