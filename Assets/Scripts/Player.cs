@@ -19,7 +19,6 @@ public class Player : MonoBehaviour ,ICubeObjectParent
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
 
-
     private Animator animator;
 
 
