@@ -114,40 +114,45 @@ public class Player : MonoBehaviour ,ICubeObjectParent
         float playerRadius = .5f;
         float playerHeight = 4f;
         float moveDistance = moveSpeed * Time.deltaTime;
-        bool canMove;// = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance, countersLayerMask);
 
         // Sleek turnaround.Vector3 Slerp(Vector3 a, Vector3 b, float t);
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
-        // Players can slide from the edge when pressing AW, WD, etc. at the same time
-        /*if (!canMove)
+         //Players can slide from the edge when pressing AW, WD, etc. at the same time
+        if (!canMove)
         {
+           Debug.Log("123");
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0);
-            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance, countersLayerMask);
+            isWalking = false;
 
             if (canMove)
             {
                 moveDir = moveDirX;
+                isWalking = true;
             }
             else
             {
                 Vector3 moveDirZ = new Vector3(0, 0, moveDir.z);
-                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance, countersLayerMask);
 
                 if (canMove)
                 {
                     moveDir = moveDirZ;
+                    isWalking = true;
                 }
             }
         }
-*/
-        //if (canMove)
+
+        if (canMove)
         {
             transform.position += moveDir * moveDistance;
+            isWalking = true;
         }
 
         //  Player animation
-        if (moveDir != Vector3.zero)
+        if (moveDir != Vector3.zero && isWalking == true)
         {
             animator.SetBool("IsWalking", true);
         }
