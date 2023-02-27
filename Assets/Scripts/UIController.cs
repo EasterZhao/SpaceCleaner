@@ -13,9 +13,9 @@ public class UIController : MonoBehaviour
     }
 
     // Switch to the next scene
-    public void LoadScene(string scenename)
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(scenename, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
 }

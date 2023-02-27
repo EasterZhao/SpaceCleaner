@@ -7,6 +7,7 @@ public class AstronomyCounter : BaseCounter
     private bool isWatching = false;
     public GameObject myCamera;
     public GameObject mySecondCamera;
+    public GameObject panel;
 
     public override void Interact(Player player)
     {
@@ -16,7 +17,7 @@ public class AstronomyCounter : BaseCounter
             myCamera.SetActive(false);
             mySecondCamera.SetActive(true);
             isWatching = true;
-
+            panel.SetActive(false);
 
         }
         else if (!player.HasCubeObject() && isWatching) 
@@ -25,6 +26,8 @@ public class AstronomyCounter : BaseCounter
             myCamera.SetActive(true);
             mySecondCamera.SetActive(false);
             isWatching = false;
+            panel.SetActive(true);
+            
         }
     }
 }

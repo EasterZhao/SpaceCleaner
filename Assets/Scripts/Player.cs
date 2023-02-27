@@ -122,7 +122,6 @@ public class Player : MonoBehaviour ,ICubeObjectParent
          //Players can slide from the edge when pressing AW, WD, etc. at the same time
         if (!canMove)
         {
-           Debug.Log("123");
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0);
             canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance, countersLayerMask);
             isWalking = false;

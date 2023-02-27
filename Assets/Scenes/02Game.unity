@@ -1123,6 +1123,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1946014150000388001, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4363deba671f28443ac0865288e4fb76, type: 3}
+    - target: {fileID: 1946014150000388001, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}
+      propertyPath: m_Color.b
+      value: 0.102394104
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946014150000388001, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946014150000388001, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}
+      propertyPath: m_Color.r
+      value: 0.153574
+      objectReference: {fileID: 0}
     - target: {fileID: 2654774696400076327, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}
       propertyPath: cuttingCounter
       value: 
@@ -1500,6 +1516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: scene3
       objectReference: {fileID: 0}
+    - target: {fileID: 5015415391883453526, guid: aab85ba0ffab70740825b937f80d5c59, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8060612e747ce2459a8b5d2b7b6d6cc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aab85ba0ffab70740825b937f80d5c59, type: 3}
 --- !u!4 &1165308696 stripped
@@ -2354,6 +2374,7 @@ MonoBehaviour:
   counterTopPoint: {fileID: 254250474}
   myCamera: {fileID: 1541231161}
   mySecondCamera: {fileID: 1282926546}
+  panel: {fileID: 224735700}
 --- !u!4 &1702995569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2996987930550115237, guid: 862d9819c65e6be4c90fde64a3f43a76, type: 3}
