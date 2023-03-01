@@ -7,19 +7,20 @@ using UnityEngine.UI;
 public class ProgressBarUI : MonoBehaviour
 {
     [SerializeField] private Image barImage;
-    [SerializeField] private CuttingCounter cuttingCounter;
+    [SerializeField] private GameObject hasProgressGameObject;
 
-
+     private IHasProgress hasProgress;
     // Start is called before the first frame update
     void Start()
     {
-        cuttingCounter.OnProgressChanged += CuttingCounter_OnprogressChanged;
+        hasProgress = hasProgressGameObject.GetComponent<IHasProgress>();
+        hasProgress.OnProgressChanged += HasProgress_OnprogressChanged;
         barImage.fillAmount = 0f;
         gameObject.SetActive(false);
 
     }
 
-    private void CuttingCounter_OnprogressChanged(object sender, CuttingCounter.OnProgressChangedEventArgs e)
+    private void HasProgress_OnprogressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
     {
         barImage.fillAmount = e.progressNormalized;
         if(e.progressNormalized == 0f || e.progressNormalized == 1f)
@@ -27,7 +28,8 @@ public class ProgressBarUI : MonoBehaviour
             gameObject.SetActive(false);
         }
         else
-        {gameObject.SetActive(true);
+        {
+            gameObject.SetActive(true);
         }
         
     }

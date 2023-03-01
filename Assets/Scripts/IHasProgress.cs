@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class IHasProgress : MonoBehaviour
+public interface  IHasProgress 
 {
-    // Start is called before the first frame update
-    void Start()
+    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
+    
+    public class OnProgressChangedEventArgs : EventArgs
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public float progressNormalized;
     }
 }

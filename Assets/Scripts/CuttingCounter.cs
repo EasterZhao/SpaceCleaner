@@ -3,15 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingCounter : BaseCounter
+public class CuttingCounter : BaseCounter,IHasProgress
 {
     [SerializeField] private CuttingObjectSO[] cuttingObjectSOArray;
-  public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
+  public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     private int cuttingProgress;
-    public class OnProgressChangedEventArgs : EventArgs
-    {
-        public float progressNormalized;
-    }
 
 public event  EventHandler OnCut;
 
@@ -31,7 +27,7 @@ public event  EventHandler OnCut;
                     CuttingObjectSO cuttingObjectSO = GetCuttingObjectSOWithInput(GetCubeObject().GetCubeObjectSO());
                     
                     
-                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
                         progressNormalized = (float)cuttingProgress / cuttingObjectSO.cuttingProgressMax
 
@@ -68,7 +64,7 @@ public event  EventHandler OnCut;
             cuttingProgress++; 
             OnCut?.Invoke(this, EventArgs.Empty);
             CuttingObjectSO cuttingObjectSO = GetCuttingObjectSOWithInput(GetCubeObject().GetCubeObjectSO());
-            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
             {
                 progressNormalized = (float)cuttingProgress / cuttingObjectSO.cuttingProgressMax
 

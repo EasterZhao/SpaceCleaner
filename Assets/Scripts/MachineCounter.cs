@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MachineCounter : BaseCounter
+public class MachineCounter : BaseCounter,IHasProgress
 {   
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     private enum State
     {
         Idle,
@@ -33,6 +34,12 @@ public class MachineCounter : BaseCounter
                 break;
             case State.Processing:            
             processTimer += Time.deltaTime;
+             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressNormalized = processTimer / unprocessedRecipeSO.fryingTimeMax
+                    });
+                
+            
            
             if(processTimer  > unprocessedRecipeSO.fryingTimeMax )
             {
@@ -40,7 +47,13 @@ public class MachineCounter : BaseCounter
                 GetCubeObject().DestroySelf();
                 CubeObject.SpawnCubeObject(unprocessedRecipeSO.output, this);
                 state = State.Processed;
+                 OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressNormalized = 0f
+                    });
+                
             }
+            
                 break;
             case State.Processed:
                 break;
@@ -68,9 +81,11 @@ public class MachineCounter : BaseCounter
                     unprocessedRecipeSO = GetUnprocessedRecipeSOWithInput(GetCubeObject().GetCubeObjectSO());
                     state = State.Processing;
                     processTimer = 0f;
- 
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressNormalized = processTimer / unprocessedRecipeSO.fryingTimeMax
+                    });
                 }
-
             }
             else
             {
