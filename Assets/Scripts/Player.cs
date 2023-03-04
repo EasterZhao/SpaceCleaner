@@ -30,6 +30,8 @@ public class Player : MonoBehaviour ,ICubeObjectParent
 
     private Inventory inventory;
 
+    private Rigidbody sphereRigidbody;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
         Instance = this;
 
         inventory = new Inventory();
+        sphereRigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
         // Player listen to input
         gameInput.OnInteractAction += GameInput_OnInteractAction;
         gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction ;
+        gameInput.OnJumpAction += GameInput_OnJumpAction ;
     }
     private void GameInput_OnInteractAlternateAction (object sender, System.EventArgs e)
     {
@@ -72,6 +76,13 @@ public class Player : MonoBehaviour ,ICubeObjectParent
             selectedCounter.Interact(this);
         }
     }
+
+     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
+    {
+       Debug.Log("JUMP");
+       sphereRigidbody.AddForce(Vector3.up * 20f, ForceMode.Impulse);
+    }
+
 
     private void HandleInteractions()
     {
@@ -102,7 +113,7 @@ public class Player : MonoBehaviour ,ICubeObjectParent
             SetSelectedCounter(null);
 
         }
-        Debug.Log(selectedCounter);
+        //Debug.Log(selectedCounter);
     }
 
     private void HandleMovement()

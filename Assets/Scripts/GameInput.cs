@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System;
 
 public class GameInput : MonoBehaviour
 {
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
-    private PlayerInputActons playerInputActons;
+    public event EventHandler OnJumpAction;
+    private PlayerInputActions playerInputActions;
     private void Awake() {
-        playerInputActons = new PlayerInputActons();
-        playerInputActons.Player.Enable();
-        playerInputActons.Player.Interact.performed += Interact_performed;
-        playerInputActons.Player.InteractAlternate.performed += InteractAlternate_performed;
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Interact.performed += Interact_performed;
+        playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
+        playerInputActions.Player.Jump.performed += Jump_performed;
 
     }
 
@@ -29,11 +32,16 @@ public class GameInput : MonoBehaviour
         OnInteractAction?.Invoke(this,EventArgs.Empty);
 
     }
-    
+    // if Player pressed space
+    private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnJumpAction?.Invoke(this,EventArgs.Empty);
+
+    }
     
     public Vector2 GetMovementVectorNormalized()
          {
-         Vector2 inputVector = playerInputActons.Player.Move.ReadValue<Vector2>();
+         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
         // a vector keeps the same direction but its length is 1.0
         inputVector = inputVector.normalized; 
         return inputVector;

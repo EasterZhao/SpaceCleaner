@@ -8,7 +8,6 @@ public class TrashCounter : BaseCounter
     {
         if (player.HasCubeObject())
         {
-                Debug.LogWarning("1");
                 player.GetCubeObject().DestroySelf();
 
         }
