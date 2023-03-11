@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6880247857418795477, guid: 2627fe86de73ed142b94913e2624b3b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6880247857556307228, guid: 2627fe86de73ed142b94913e2624b3b3, type: 3}
       propertyPath: m_Name
-      value: BaseCounter 1
+      value: AstronomyCounter
       objectReference: {fileID: 0}
     - target: {fileID: 6880247857556307229, guid: 2627fe86de73ed142b94913e2624b3b3, type: 3}
       propertyPath: m_RootOrder
