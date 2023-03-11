@@ -76,13 +76,24 @@ public class Player : MonoBehaviour ,ICubeObjectParent
             selectedCounter.Interact(this);
         }
     }
+private IEnumerator EndJumpAnimation()
+{
+    // Wait for 1 second
+    yield return new WaitForSeconds(1f);
 
-     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
-    {
-       Debug.Log("JUMP");
-       sphereRigidbody.AddForce(Vector3.up * 20f, ForceMode.Impulse);
-    }
+    // Set "IsJumping" parameter to false to end the jump animation
+    animator.SetBool("IsJumping", false);
+}
 
+private void GameInput_OnJumpAction(object sender, System.EventArgs e)
+{
+    Debug.Log("JUMP");
+    sphereRigidbody.AddForce(Vector3.up * 20f, ForceMode.Impulse);
+    animator.SetBool("IsJumping", true);
+
+    // Start coroutine to end the jump animation
+    StartCoroutine(EndJumpAnimation());
+}
 
     private void HandleInteractions()
     {
