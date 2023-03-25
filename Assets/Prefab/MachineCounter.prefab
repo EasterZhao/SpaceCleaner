@@ -417,31 +417,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2627fe86de73ed142b94913e2624b3b3, type: 3}
---- !u!4 &1258814779708283872 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7478711836064865919, guid: 2627fe86de73ed142b94913e2624b3b3, type: 3}
-  m_PrefabInstance: {fileID: 8552772838856181151}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3011220865106376835 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6880247857556307228, guid: 2627fe86de73ed142b94913e2624b3b3, type: 3}
-  m_PrefabInstance: {fileID: 8552772838856181151}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4164864165182023377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3011220865106376835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d233427849fadb842bea4723c435efbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 1258814779708283872}
-  unprocessedRecipeSOArray:
-  - {fileID: 11400000, guid: 7bbc78c058516d84ab0236c71c90210d, type: 2}
 --- !u!4 &4843924990276706279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3857501891658603128, guid: 2627fe86de73ed142b94913e2624b3b3, type: 3}

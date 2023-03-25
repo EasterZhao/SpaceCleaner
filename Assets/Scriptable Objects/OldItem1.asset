@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f205a512aa0e34a8d54322bf6bc1e2, type: 3}
   m_Name: OldItem1
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4777774015803224943, guid: f1a434a97d439ff40b128416bb1425a4, type: 3}
+  prefab: {fileID: 919630228146665495, guid: 380b020557b7a794b8a75c29ff6f3a2c, type: 3}
   sprite: {fileID: 21300000, guid: 4da274d970a82a943ae3979e7833f3dd, type: 3}
-  objectName: OldItem1
+  objectName: BlueCrystal
