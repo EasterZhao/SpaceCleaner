@@ -11,6 +11,13 @@ public class CuttingCounter : BaseCounter,IHasProgress
 
 public event  EventHandler OnCut;
 
+    public AudioClip soundEffect;
+    private AudioSource audioSource;
+
+    private void Awake() 
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
   
     public override void Interact(Player player)
     {
@@ -76,6 +83,8 @@ public event  EventHandler OnCut;
                 CubeObjectSO outputCubeObjectSO = GetOutputForInput(GetCubeObject().GetCubeObjectSO());
                 GetCubeObject().DestroySelf();
                 CubeObject.SpawnCubeObject(outputCubeObjectSO, this);
+                audioSource.PlayOneShot(soundEffect, 0.7F);
+                
             }
         }
     }

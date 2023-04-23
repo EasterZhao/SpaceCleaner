@@ -8,12 +8,13 @@ public class ContainerCounter : BaseCounter
     [SerializeField] private CubeObjectSO cubeObjectSO;
 
     public Animator animator;
-
-    public event EventHandler OnPickUpTrash;
+    public AudioClip soundEffect;
+    private AudioSource audioSource;
 
     private void Awake() 
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -22,12 +23,9 @@ public class ContainerCounter : BaseCounter
         if(!player.HasCubeObject())
             {
             // only one object would appear on desktop
-             CubeObject.SpawnCubeObject(cubeObjectSO, player);    
+            CubeObject.SpawnCubeObject(cubeObjectSO, player);    
             animator.SetBool("OpenClose", true);
-            OnPickUpTrash?.Invoke(this,EventArgs.Empty);
-            
+            audioSource.PlayOneShot(soundEffect, 0.7F);
             }
-
     }
-
 }

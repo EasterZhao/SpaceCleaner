@@ -8,6 +8,12 @@ public class AstronomyCounter : BaseCounter
     public GameObject myCamera;
     public GameObject mySecondCamera;
     public GameObject panel;
+    public AudioClip soundEffect;
+    private AudioSource audioSource;
+        private void Awake() 
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public override void Interact(Player player)
     {
@@ -18,6 +24,7 @@ public class AstronomyCounter : BaseCounter
             mySecondCamera.SetActive(true);
             isWatching = true;
             panel.SetActive(false);
+            audioSource.PlayOneShot(soundEffect, 0.7F);
 
         }
         else if (!player.HasCubeObject() && isWatching) 

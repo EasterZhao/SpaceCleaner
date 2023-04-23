@@ -6,6 +6,8 @@ using System;
 public class MachineCounter : BaseCounter,IHasProgress
 {   
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
+    public AudioClip soundEffect;
+    private AudioSource audioSource;
     private enum State
     {
         Idle,
@@ -19,6 +21,10 @@ public class MachineCounter : BaseCounter,IHasProgress
     private float processTimer;
     private UnprocessedRecipeSO unprocessedRecipeSO;
     private State state;
+      private void Awake() 
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start() 
     {
@@ -56,6 +62,7 @@ public class MachineCounter : BaseCounter,IHasProgress
             
                 break;
             case State.Processed:
+            audioSource.PlayOneShot(soundEffect, 0.7F);
                 break;
             //case State.Broken:
                 //break;

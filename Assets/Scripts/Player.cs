@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Player : MonoBehaviour ,ICubeObjectParent
+public class Player : MonoBehaviour, ICubeObjectParent
 {
-    
-    public static Player Instance{ get; private set;}
-    
+
+    public static Player Instance { get; private set; }
+
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
@@ -32,10 +32,20 @@ public class Player : MonoBehaviour ,ICubeObjectParent
 
     private Rigidbody sphereRigidbody;
 
+    public AudioClip[] exteriorClips;
+    public AudioClip[] interiorClips;
+
+    private AudioSource audioSource;
+
+    private float lastFootstepTime = 0.0f;
+    public float footstepInterval = 0.8f;
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        if(Instance != null)
+        audioSource = GetComponent<AudioSource>();
+        if (Instance != null)
         {
             Debug.LogError("not one instance");
 
@@ -57,10 +67,12 @@ public class Player : MonoBehaviour ,ICubeObjectParent
     {
         // Player listen to input
         gameInput.OnInteractAction += GameInput_OnInteractAction;
-        gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction ;
-        gameInput.OnJumpAction += GameInput_OnJumpAction ;
+        gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+        gameInput.OnJumpAction += GameInput_OnJumpAction;
+
+
     }
-    private void GameInput_OnInteractAlternateAction (object sender, System.EventArgs e)
+    private void GameInput_OnInteractAlternateAction(object sender, System.EventArgs e)
     {
         // check is there any items on counter
         if (selectedCounter != null)
@@ -76,24 +88,24 @@ public class Player : MonoBehaviour ,ICubeObjectParent
             selectedCounter.Interact(this);
         }
     }
-private IEnumerator EndJumpAnimation()
-{
-    // Wait for 1 second
-    yield return new WaitForSeconds(1f);
+    private IEnumerator EndJumpAnimation()
+    {
+        // Wait for 1 second
+        yield return new WaitForSeconds(1f);
 
-    // Set "IsJumping" parameter to false to end the jump animation
-    animator.SetBool("IsJumping", false);
-}
+        // Set "IsJumping" parameter to false to end the jump animation
+        animator.SetBool("IsJumping", false);
+    }
 
-private void GameInput_OnJumpAction(object sender, System.EventArgs e)
-{
-    Debug.Log("JUMP");
-    sphereRigidbody.AddForce(Vector3.up * 20f, ForceMode.Impulse);
-    animator.SetBool("IsJumping", true);
+    private void GameInput_OnJumpAction(object sender, System.EventArgs e)
+    {
+        Debug.Log("JUMP");
+        sphereRigidbody.AddForce(Vector3.up * 20f, ForceMode.Impulse);
+        animator.SetBool("IsJumping", true);
 
-    // Start coroutine to end the jump animation
-    StartCoroutine(EndJumpAnimation());
-}
+        // Start coroutine to end the jump animation
+        StartCoroutine(EndJumpAnimation());
+    }
 
     private void HandleInteractions()
     {
@@ -141,7 +153,7 @@ private void GameInput_OnJumpAction(object sender, System.EventArgs e)
         // Sleek turnaround.Vector3 Slerp(Vector3 a, Vector3 b, float t);
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
-         //Players can slide from the edge when pressing AW, WD, etc. at the same time
+        //Players can slide from the edge when pressing AW, WD, etc. at the same time
         if (!canMove)
         {
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0);
@@ -170,12 +182,38 @@ private void GameInput_OnJumpAction(object sender, System.EventArgs e)
         {
             transform.position += moveDir * moveDistance;
             isWalking = true;
+
         }
 
         //  Player animation
         if (moveDir != Vector3.zero && isWalking == true)
         {
             animator.SetBool("IsWalking", true);
+            if (Time.time - lastFootstepTime > footstepInterval)
+            {
+                AudioClip[] currentFootsteps = interiorClips;
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+                {
+                    if (hit.collider.CompareTag("Exterior"))
+                    {
+                        currentFootsteps = exteriorClips;
+                    }
+                    else if (hit.collider.CompareTag("Interior"))
+                    {
+                        currentFootsteps = interiorClips;
+                    }
+                }
+                int randomIndex = UnityEngine.Random.Range(0, currentFootsteps.Length);
+                AudioClip randomClip = currentFootsteps[randomIndex];
+                audioSource.clip = randomClip;
+                audioSource.Play();
+                lastFootstepTime = Time.time;
+
+                float pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                audioSource.pitch = pitch;
+
+            }
         }
         else
         {
@@ -193,7 +231,7 @@ private void GameInput_OnJumpAction(object sender, System.EventArgs e)
         });
     }
 
-   
+
     public Transform GetCubeObjectFollowTransform()
     {
         return cubeObjectHoldPoint;
@@ -211,13 +249,13 @@ private void GameInput_OnJumpAction(object sender, System.EventArgs e)
 
     public void ClearCubeObject()
     {
-          cubeObject = null;
+        cubeObject = null;
     }
 
     public bool HasCubeObject()
     {
-     return cubeObject != null;
+        return cubeObject != null;
     }
-    
-  
+
+
 }
