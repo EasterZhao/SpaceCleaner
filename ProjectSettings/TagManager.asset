@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Exterior
   - Interior
+  - battery
+  - cardboard
   layers:
   - Default
   - TransparentFX

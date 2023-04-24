@@ -7,6 +7,7 @@ public class MachineCounter : BaseCounter,IHasProgress
 {   
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public AudioClip soundEffect;
+    public AudioClip processEffect;
     private AudioSource audioSource;
     private enum State
     {
@@ -38,7 +39,8 @@ public class MachineCounter : BaseCounter,IHasProgress
         {
             case State.Idle:
                 break;
-            case State.Processing:            
+            case State.Processing:
+            audioSource.PlayOneShot(processEffect, 0.1F);            
             processTimer += Time.deltaTime;
              OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {

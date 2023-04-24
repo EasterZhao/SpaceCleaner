@@ -14,6 +14,8 @@ public event  EventHandler OnCut;
     public AudioClip soundEffect;
     private AudioSource audioSource;
 
+    public AudioClip processEffect;
+
     private void Awake() 
     {
         audioSource = GetComponent<AudioSource>();
@@ -67,14 +69,15 @@ public event  EventHandler OnCut;
     {
         if (HasCubeObject() && HasCubeObjectWithInput(GetCubeObject().GetCubeObjectSO()))
         {
-
+            audioSource.PlayOneShot(processEffect, 0.1F);
+                
             cuttingProgress++; 
             OnCut?.Invoke(this, EventArgs.Empty);
             CuttingObjectSO cuttingObjectSO = GetCuttingObjectSOWithInput(GetCubeObject().GetCubeObjectSO());
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
             {
                 progressNormalized = (float)cuttingProgress / cuttingObjectSO.cuttingProgressMax
-
+               
             });
 
             // cut it and delete the original object
