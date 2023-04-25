@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1345701509290608507, guid: 8af761da73563c849b3cfdb35b7be062, type: 3}
       propertyPath: m_Name
-      value: 'ContainerCounter2 Variant '
+      value: ContainerCounter2 Variant  Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6232818857739949058, guid: 8af761da73563c849b3cfdb35b7be062, type: 3}
       propertyPath: baseCounter

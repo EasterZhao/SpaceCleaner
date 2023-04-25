@@ -48,6 +48,8 @@ MonoBehaviour:
   counterTopPoint: {fileID: 6880247857556307229}
   cuttingObjectSOArray:
   - {fileID: 11400000, guid: 751b693646712b744915a25047d3bd77, type: 2}
+  soundEffect: {fileID: 0}
+  processEffect: {fileID: 0}
 --- !u!1 &2311804875780212703
 GameObject:
   m_ObjectHideFlags: 0

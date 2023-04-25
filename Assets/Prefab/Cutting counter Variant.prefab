@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +203,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e8060612e747ce2459a8b5d2b7b6d6cc, type: 2}
     - target: {fileID: 6880247857556307228, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}
       propertyPath: m_Name
-      value: Cutting counter
+      value: Cutting counter Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6880247857556307229, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}
       propertyPath: m_RootOrder
@@ -276,6 +276,8 @@ MonoBehaviour:
   counterTopPoint: {fileID: 3974426816286480613}
   cuttingObjectSOArray:
   - {fileID: 11400000, guid: 751b693646712b744915a25047d3bd77, type: 2}
+  soundEffect: {fileID: 0}
+  processEffect: {fileID: 0}
 --- !u!4 &1124268311461510023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6880247857556307229, guid: 91d7a7cc922cce74e9d828b5c03d2107, type: 3}

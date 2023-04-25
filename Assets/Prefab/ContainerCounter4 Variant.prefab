@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380953498997914625, guid: 840616a853792a24ba3be4542a46d7fc, type: 3}
       propertyPath: m_Name
-      value: ContainerCounter3 Variant   Variant
+      value: ContainerCounter4 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840616a853792a24ba3be4542a46d7fc, type: 3}
