@@ -10,6 +10,11 @@ public class ClearCounter : BaseCounter
     public AudioClip cardboardEffect;
     private AudioSource audioSource;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public override void Interact(Player player)
     {
         if (!HasCubeObject())
@@ -19,18 +24,21 @@ public class ClearCounter : BaseCounter
             {
                 // Player is carrying sth
                 player.GetCubeObject().SetICubeObjectParent(this);
-                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, Vector3.up, out hit, 3f))
+                Debug.Log("abc");
+                RaycastHit hit = new RaycastHit();
+                if (Physics.Raycast(transform.position, Vector3.forward, out hit, 5f))
                 {
-                    Debug.Log("123");
-                    if (hit.collider.CompareTag("battery"))
-                    {
-                        audioSource.PlayOneShot(batteryEffect, 0.7F);
-                    }
-                    else if (hit.collider.CompareTag("cardboard"))
-                    {
-                        audioSource.PlayOneShot(cardboardEffect, 0.7F);
-                    }
+                    //Debug.Log("123");
+                    //if (hit.collider.CompareTag("battery"))
+                    //{
+                    // Debug.Log("1");
+                    // audioSource.PlayOneShot(batteryEffect, 0.7f);
+                    //}
+                    //else if (hit.collider.CompareTag("cardboard"))
+                    //{
+                    //audioSource.PlayOneShot(cardboardEffect, 0.7f);
+                    //}                  
+                    audioSource.PlayOneShot(cardboardEffect, 0.7f);
                 }
 
             }

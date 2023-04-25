@@ -8,17 +8,8 @@ public class UIController : MonoBehaviour
 {
     public GameObject panel;
     public Animator animator;
-    public Button btn_start;
-    public GameObject whitepanel;
-    private void Start()
-    {
-        btn_start.onClick.AddListener(() =>
-        {
-            panel.SetActive(false);
-            animator.SetTrigger("Play");
-            Invoke("ShowWhite", 6);
-        });
-    }
+    public GameObject whitePanel;
+
     // Quit application
     public void QuitApplication()
     {
@@ -29,12 +20,23 @@ public class UIController : MonoBehaviour
     // Switch to the next scene
     public void ShowWhite()
     {
-        whitepanel.SetActive(true);
+        whitePanel.SetActive(true);
         Invoke("LoadScene", 2);
     }
-    public void LoadScene()
+        public void LoadNextScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
+        public void LoadScene()
     {
         SceneManager.LoadScene(1, LoadSceneMode.Single);
+    }
+
+    public void StartScene()
+    {
+            panel.SetActive(false);
+            animator.SetTrigger("Play");
+            Invoke("ShowWhite", 6);
     }
 
 }

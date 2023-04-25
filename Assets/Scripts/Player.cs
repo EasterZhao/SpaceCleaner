@@ -28,7 +28,6 @@ public class Player : MonoBehaviour, ICubeObjectParent
     private CubeObject cubeObject;
     [SerializeField] private Transform cubeObjectHoldPoint;
 
-    private Inventory inventory;
 
     private Rigidbody sphereRigidbody;
 
@@ -52,7 +51,7 @@ public class Player : MonoBehaviour, ICubeObjectParent
         }
         Instance = this;
 
-        inventory = new Inventory();
+   
         sphereRigidbody = GetComponent<Rigidbody>();
     }
 
