@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f205a512aa0e34a8d54322bf6bc1e2, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4162619256181706639, guid: cd8313b88b07106499d02a275bc1704c, type: 3}
+  prefab: {fileID: 6330384068231697333, guid: 26c72a44741d80e4c9557f07d087bac9, type: 3}
   sprite: {fileID: 21300000, guid: 4a231ba0e81e63849a8f985c228e8acd, type: 3}
   objectName: Grass

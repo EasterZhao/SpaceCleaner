@@ -8,6 +8,7 @@ TagManager:
   - Interior
   - battery
   - cardboard
+  - Crystal
   layers:
   - Default
   - TransparentFX
