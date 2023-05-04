@@ -63,5 +63,17 @@ PrefabInstance:
       propertyPath: cubeObjectSO
       value: 
       objectReference: {fileID: 11400000, guid: 1911138e336c81046b8dcbbffb43aafc, type: 2}
+    - target: {fileID: 8585554078050696428, guid: e10560e1743e94d449f502d7f620a85f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.46932328
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585554078050696428, guid: e10560e1743e94d449f502d7f620a85f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.46932328
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585554078050696428, guid: e10560e1743e94d449f502d7f620a85f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.46932328
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e10560e1743e94d449f502d7f620a85f, type: 3}

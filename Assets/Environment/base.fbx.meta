@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: DoorSide
+    second: {fileID: -333415491942882640, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UnderSide
+    second: {fileID: 7390871704515345542, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ground
     second: {fileID: 2100000, guid: 73c88b605acb96f46a191e6d335db4b9, type: 2}
   - first:

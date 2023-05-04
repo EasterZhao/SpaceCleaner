@@ -11,7 +11,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 01 - Default
-    second: {fileID: 3610870471188823767, guid: e8d3a2b1ee4eb8f4cbe10b66fd108327, type: 3}
+    second: {fileID: 3638947566262994944, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -21,7 +21,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat3d66-9320056-11-87361
-    second: {fileID: 8056232559135389360, guid: e8d3a2b1ee4eb8f4cbe10b66fd108327, type: 3}
+    second: {fileID: 7390871704515345542, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -31,7 +31,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat3d66-9320056-14-67436
-    second: {fileID: 4219301408728481981, guid: e8d3a2b1ee4eb8f4cbe10b66fd108327, type: 3}
+    second: {fileID: -333415491942882640, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -51,12 +51,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat3d66-9320056-22-52067
-    second: {fileID: 4219301408728481981, guid: e8d3a2b1ee4eb8f4cbe10b66fd108327, type: 3}
+    second: {fileID: -333415491942882640, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat3d66-9320056-25-29816
-    second: {fileID: 4219301408728481981, guid: e8d3a2b1ee4eb8f4cbe10b66fd108327, type: 3}
+    second: {fileID: 4427394405292297522, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
