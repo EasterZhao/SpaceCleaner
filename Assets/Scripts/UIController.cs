@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
     public GameObject panel;
     public Animator animator;
     public GameObject whitePanel;
+    public GameObject player;
 
     // Quit application
     public void QuitApplication()
@@ -37,6 +38,11 @@ public class UIController : MonoBehaviour
             panel.SetActive(false);
             animator.SetTrigger("Play");
             Invoke("ShowWhite", 6);
+    }
+
+        public void OnButtonPress()
+    {
+       player.transform.position = new Vector3(-2f, -0.6f, -4.5f);
     }
 
 }
