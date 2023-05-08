@@ -16,7 +16,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 02 - Default
-    second: {fileID: 7390871704515345542, guid: 2fef74e6188d9d54bac62e7157df7a5e, type: 3}
+    second: {fileID: 2269116928689028571, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -46,7 +46,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat3d66-9320056-20-60911
-    second: {fileID: 7887228937920767245, guid: 2fef74e6188d9d54bac62e7157df7a5e, type: 3}
+    second: {fileID: 4735783700988644922, guid: 41b869c0ca39a934f9135c6e0c4c5828, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
