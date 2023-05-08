@@ -93,6 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3661794728591105087}
   - component: {fileID: 3049460034131271746}
+  - component: {fileID: 7966028063992585022}
+  - component: {fileID: 1889722727927246299}
   m_Layer: 0
   m_Name: GreenCrystal
   m_TagString: Crystal
@@ -129,3 +131,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeObjectSO: {fileID: 11400000, guid: 5d3c42d73aa931f47a84eb7e567d6de8, type: 2}
+--- !u!65 &7966028063992585022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335908217306788304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6402454, y: 2.2568476, z: 1.7836245}
+  m_Center: {x: 0.024972796, y: -0.015677333, z: 0.20860344}
+--- !u!114 &1889722727927246299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335908217306788304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a064252bc125bf04c9aba7f966fd6e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

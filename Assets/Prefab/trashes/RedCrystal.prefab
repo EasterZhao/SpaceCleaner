@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8283759821754531981}
   - component: {fileID: 4498199265183429000}
+  - component: {fileID: -5094810518091218244}
+  - component: {fileID: -5106606025758601124}
   m_Layer: 0
   m_Name: RedCrystal
   m_TagString: Crystal
@@ -46,6 +48,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeObjectSO: {fileID: 11400000, guid: c73928e5066b15543868f04d73ba4755, type: 2}
+--- !u!114 &-5094810518091218244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196092955476458353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a064252bc125bf04c9aba7f966fd6e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-5106606025758601124
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196092955476458353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6402454, y: 2.2568476, z: 1.7836245}
+  m_Center: {x: 0.024972796, y: -0.015677333, z: 0.20860344}
 --- !u!1 &7122054380051190625
 GameObject:
   m_ObjectHideFlags: 0
