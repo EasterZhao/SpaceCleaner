@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Counter;
 
 public class Player : MonoBehaviour, ICubeObjectParent
 {

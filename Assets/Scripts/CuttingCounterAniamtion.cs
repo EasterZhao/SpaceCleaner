@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CuttingCounterAniamtion : MonoBehaviour
 {
-    [SerializeField] private CuttingCounter cuttingCounter;
+    [SerializeField] private Counter.CuttingCounter cuttingCounter;
 
     public Animator animator;
 

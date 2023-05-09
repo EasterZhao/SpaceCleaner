@@ -3,29 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class ContainerCounter : BaseCounter 
+namespace Counter
 {
-    [SerializeField] private CubeObjectSO cubeObjectSO;
 
-    public Animator animator;
-    public AudioClip soundEffect;
-    private AudioSource audioSource;
-
-    private void Awake() 
+    public class ContainerCounter : BaseCounter
     {
-        animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
-    }
+        [SerializeField] private CubeObjectSO cubeObjectSO;
+
+        public Animator animator;
+        public AudioClip soundEffect;
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
+        }
 
 
-    public override void Interact(Player player)
-    {
-        if(!player.HasCubeObject())
+        public override void Interact(Player player)
+        {
+            if (!player.HasCubeObject())
             {
-            // only one object would appear on desktop
-            CubeObject.SpawnCubeObject(cubeObjectSO, player);    
-            animator.SetBool("OpenClose", true);
-            audioSource.PlayOneShot(soundEffect, 0.7F);
+                // only one object would appear on desktop
+                CubeObject.SpawnCubeObject(cubeObjectSO, player);
+                animator.SetBool("OpenClose", true);
+                audioSource.PlayOneShot(soundEffect, 0.7F);
             }
+        }
     }
+
 }

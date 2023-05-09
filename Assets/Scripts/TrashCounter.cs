@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashCounter : BaseCounter
+namespace Counter
 {
-    public AudioClip soundEffect;
-    private AudioSource audioSource;
-    private void Awake() 
+    public class TrashCounter : BaseCounter
     {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-
-    public override void Interact(Player player)
-    {
-        if (player.HasCubeObject())
+        public AudioClip soundEffect;
+        private AudioSource audioSource;
+        private void Awake()
         {
-                player.GetCubeObject().DestroySelf();
-                 audioSource.PlayOneShot(soundEffect, 0.7F);
-
+            audioSource = GetComponent<AudioSource>();
         }
+
+
+        public override void Interact(Player player)
+        {
+            if (player.HasCubeObject())
+            {
+                player.GetCubeObject().DestroySelf();
+                audioSource.PlayOneShot(soundEffect, 0.7F);
+
+            }
+        }
+
     }
 
 }
-
