@@ -8,7 +8,6 @@ public class UIController : MonoBehaviour
 {
     public GameObject panel;
     public Animator animator;
-    public GameObject whitePanel;
     public GameObject player;
 
     // Quit application
@@ -21,7 +20,7 @@ public class UIController : MonoBehaviour
     // Switch to the next scene
     public void ShowWhite()
     {
-        whitePanel.SetActive(true);
+        
         Invoke("LoadScene", 2);
     }
         public void LoadNextScene(string sceneName)
