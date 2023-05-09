@@ -71,7 +71,7 @@ namespace Counter
 
                         break;
                     case State.Processed:
-                        audioSource.PlayOneShot(soundEffect, 0.7F);
+                        audioSource.PlayOneShot(soundEffect, 0.6F);
 
                         if (processingAnimator)
                             processingAnimator.enabled = false;

@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
     public void ShowWhite()
     {
         
-        Invoke("LoadScene", 2);
+        Invoke("LoadScene", 1);
     }
         public void LoadNextScene(string sceneName)
     {

@@ -9,6 +9,9 @@ TagManager:
   - battery
   - cardboard
   - Crystal
+  - CrystalA
+  - CrystalB
+  - CrystalC
   layers:
   - Default
   - TransparentFX
