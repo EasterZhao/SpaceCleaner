@@ -24,6 +24,9 @@ namespace Counter
         private float processTimer;
         private UnprocessedRecipeSO unprocessedRecipeSO;
         private State state;
+
+        public Animator processingAnimator;
+
         private void Awake()
         {
             audioSource = GetComponent<AudioSource>();
@@ -42,6 +45,9 @@ namespace Counter
                     case State.Idle:
                         break;
                     case State.Processing:
+                        if (processingAnimator)
+                            processingAnimator.enabled = true;
+
                         audioSource.PlayOneShot(processEffect, 0.1F);
                         processTimer += Time.deltaTime;
                         OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
@@ -61,12 +67,14 @@ namespace Counter
                             {
                                 progressNormalized = 0f
                             });
-
                         }
 
                         break;
                     case State.Processed:
                         audioSource.PlayOneShot(soundEffect, 0.7F);
+
+                        if (processingAnimator)
+                            processingAnimator.enabled = false;
                         break;
                         //case State.Broken:
                         //break;
